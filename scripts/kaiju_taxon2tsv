@@ -1,0 +1,15 @@
+#!/bin/sh
+
+usage()
+{
+	echo "usage: kaiju_taxon2tsv -i <kaiju_taxon_file> -f <min_reads> -o <kaiju_tsv_output>"
+}
+
+module load singularity/3.3
+
+IMAGEDIR="/cm/shared/apps/pipeline/megan_toolbox/07.01.20/image"
+#IMAGEDIR="../image"
+IMAGE="megan_toolbox.sif"
+EXEC="singularity exec "$IMAGEDIR"/"$IMAGE
+
+$EXEC kaiju_taxon2tsv $@

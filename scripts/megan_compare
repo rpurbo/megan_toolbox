@@ -1,0 +1,15 @@
+#!/bin/sh
+
+usage()
+{
+	echo "usage: megan compare -m [absolute|relative] -i [list_of_megan_files] -o [output_file]"
+}
+
+module load singularity/3.3
+
+IMAGEDIR="/cm/shared/apps/pipeline/megan_toolbox/07.01.20/image"
+#IMAGEDIR="../image"
+IMAGE="megan_toolbox.sif"
+EXEC="singularity exec "$IMAGEDIR"/"$IMAGE
+
+$EXEC megan_compare $@

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+usage()
+{
+	echo "usage: kp_Export_Metadata_to_MEGAN -i <megan_compare_file> -m <metadata_file> -o <megan_output>"
+}
+
+module load singularity/3.3
+
+IMAGEDIR="/cm/shared/apps/pipeline/megan_toolbox/07.01.20/image"
+#IMAGEDIR="../image"
+IMAGE="megan_toolbox.sif"
+EXEC="singularity exec "$IMAGEDIR"/"$IMAGE
+
+$EXEC kp_Export_Metadata_to_MEGAN $@
